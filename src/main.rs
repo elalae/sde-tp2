@@ -1,4 +1,36 @@
+#[cfg(test)]
+mod test{
+    use crate::Ds;
 
+    #[test]
+    fn test_push(){
+        let mut test= Ds::new();
+    
+        test.push(5);
+        assert_eq! (test.vect, vec![5]);
+        test.push(6);
+        assert_eq! (test.vect, vec![5,6]);
+        test.push(3);
+        assert_eq! (test.vect, vec![3,5,6]);
+        test.push(1);
+        assert_eq! (test.vect, vec![1,3,5,6]);
+
+        //assert_eq! (test.vect, vec![]);
+    }
+
+    #[test]
+    fn test_remove(){
+        let mut test= Ds::new();
+         
+        test.remove(6);
+        assert_eq! (test.vect, vec![1,3,5]);
+
+        test.remove(1);
+        assert_eq! (test.vect, vec![3,5]);
+
+
+    }
+}
 struct Ds{
    
     vect: Vec<u64>
