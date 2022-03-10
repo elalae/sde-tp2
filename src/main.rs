@@ -64,12 +64,9 @@ impl Ds{
             self.vect.remove(index as usize);
         }
         
-        
 
 
     }
-
-  
 
     fn display(&self){
         // for i in 0.. self.vect.len(){
@@ -80,26 +77,18 @@ impl Ds{
     }
 
 
-    fn prime_numbers(&self) -> Vec<u64>  {
+    fn is_prime(&self)-> Vec<u64>{
+        let mut result1 = Vec::new();
 
-        let mut result1 = Vec::<u64>::new();
-        let mut contos=0;
         for n in self.vect.iter(){
-            if n==0 || n==1 {
-               contos+=1;
+            if is_prime_num(*n)== true{
+               result1.push(*n)
             }
-            else{
-                   for i in 2..n{
-                       if n%i==0{
-                           contos+=1;
-                       }
-                   }
-               }
-               if contos==0{
-                   result1.push(n)               }
         }
-         return result1;   
-    }
+
+        return result1;
+}
+
 
 }
 
@@ -117,5 +106,19 @@ fn main() {
     test.remove(6);
     test.display();
 
+    println!("The prime numbers are {:?}", test.is_prime());
 
+
+}
+
+fn is_prime_num(n: u64) -> bool {
+    if n <= 1 {
+        return false;
+    }
+    for a in 2..n {
+        if n % a == 0 {
+            return false; // if it is not the last statement you need to use `return`
+        }
+    }
+    true // last value to return
 }
