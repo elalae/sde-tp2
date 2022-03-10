@@ -64,9 +64,12 @@ impl Ds{
             self.vect.remove(index as usize);
         }
         
+        
 
 
     }
+
+  
 
     fn display(&self){
         // for i in 0.. self.vect.len(){
@@ -76,6 +79,27 @@ impl Ds{
         println!("{:?}", self.vect);
     }
 
+
+    fn prime_numbers(&self) -> Vec<u64>  {
+
+        let mut result1 = Vec::<u64>::new();
+        let mut contos=0;
+        for n in self.vect.iter(){
+            if n==0 || n==1 {
+               contos+=1;
+            }
+            else{
+                   for i in 2..n{
+                       if n%i==0{
+                           contos+=1;
+                       }
+                   }
+               }
+               if contos==0{
+                   result1.push(n)               }
+        }
+         return result1;   
+    }
 
 }
 
