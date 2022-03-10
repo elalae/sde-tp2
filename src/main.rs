@@ -19,8 +19,19 @@ mod test{
     }
 
     #[test]
-    fn test_remove(){
+    fn test_remove_and_isprime(){
+
+
         let mut test= Ds::new();
+
+        test.push(5);
+        assert_eq! (test.vect, vec![5]);
+        test.push(6);
+        assert_eq! (test.vect, vec![5,6]);
+        test.push(3);
+        assert_eq! (test.vect, vec![3,5,6]);
+        test.push(1);
+        assert_eq! (test.vect, vec![1,3,5,6]);
          
         test.remove(6);
         assert_eq! (test.vect, vec![1,3,5]);
@@ -28,8 +39,16 @@ mod test{
         test.remove(1);
         assert_eq! (test.vect, vec![3,5]);
 
+        assert_eq!(test.is_prime(), vec![3,5]);
+
 
     }
+   /*  #[test]
+    fn test_is_prime(){
+
+        let test= Ds::new();
+        assert_eq!(test.is_prime(), vec![3,5]);
+    } */
 }
 struct Ds{
    
