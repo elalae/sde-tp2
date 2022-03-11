@@ -107,7 +107,20 @@ impl Ds{
 
         return result1;
 }
+    fn get_slice(&self, a:u64, b:u64)->Vec<u64> {
+        let mut result2 = Vec::new();
+        let c= self.vect.iter().position(|&x| x == a).unwrap();
+        let d= self.vect.iter().position(|&x| x == b).unwrap();
+        
+        for n in c..d{
+            
+               result2.push(self.vect[n])
+            
+        }
 
+        
+        return result2;
+    }
 
 }
 
@@ -126,6 +139,8 @@ fn main() {
     test.display();
 
     println!("The prime numbers are {:?}", test.is_prime());
+
+    
 
 
 }
