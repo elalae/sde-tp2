@@ -112,7 +112,7 @@ impl Ds{
         let c= self.vect.iter().position(|&x| x == a).unwrap();
         let d= self.vect.iter().position(|&x| x == b).unwrap();
         
-        for n in c..d{
+        for n in c..d+1{
             
                result2.push(self.vect[n])
             
@@ -132,16 +132,18 @@ fn main() {
     test.push(6);
     test.push(3);
     test.push(1);
+    test.push(2);
      
     test.display();
-
+ 
     test.remove(6);
     test.display();
 
     println!("The prime numbers are {:?}", test.is_prime());
-
+ 
     
-
+   
+    println!("The prime numbers are {:?}", test.get_slice(1, 3));
 
 }
 
